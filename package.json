@@ -1,0 +1,29 @@
+{
+    "name": "browser-forms",
+    "description": "Polished form validation interaction in the browser.  Built on caolan/forms.",
+    "main": "./index",
+    "version": "0.0.1",
+    "repository": {
+        "type": "git",
+        "url": "http://github.com/hurrymaplelad/browser-forms.git"
+    },
+    "bugs": {
+        "url": "http://github.com/hurrymaplelad/browser-forms/issues"
+    },
+    "scripts": {
+        "test": "make"
+    },
+    "dependencies": {
+        "forms": "0.1.x"
+    },
+    "licenses": [
+        {
+            "type": "MIT"
+        }
+    ],
+    "devDependencies": {
+        "nodeunit": "0.7.x",
+        "browserify": "2.x.x"
+    }
+}
+
