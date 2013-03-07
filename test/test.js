@@ -13,8 +13,7 @@ var clientSuite = {
         test.done();
     }
 };
-
-
+ 
 nodeunit.run([
   clientSuite,
   sharedSuites
