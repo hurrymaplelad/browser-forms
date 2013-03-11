@@ -1,4 +1,4 @@
-var forms = require('../index');
+var forms = require('forms');
 var sharedSuites = {
     fieldsSuite: require('forms/test/test-fields'),
     formsSuite: require('forms/test/test-forms'),
