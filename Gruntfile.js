@@ -51,7 +51,10 @@ module.exports = function (grunt) {
 
 		regarde: {
 			testjs: {
-				files: 'test/**/*.js',
+				files: [
+					'test/**/*.js',
+					'lib/**/*.js'
+				],
 				tasks: [
 					'browserify:test',
 					'livereload'
