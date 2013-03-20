@@ -22,13 +22,13 @@
         }
     ],
     "devDependencies": {
-        "nodeunit": "0.7.x",
         "grunt": "0.4.x",
         "grunt-browserify": "git://github.com/jmreidy/grunt-browserify.git#grunt0.4-compat",
-        "grunt-contrib-copy": "0.4.x",
         "grunt-contrib-clean": "0.4.x",
         "grunt-contrib-livereload": "0.1.x",
         "grunt-open": "0.2.x",
-        "grunt-regarde": "0.1.x"
+        "grunt-regarde": "0.1.x",
+        "grunt-karma": "*",
+        "karma-nodeunit": "*"
     }
 }

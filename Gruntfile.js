@@ -3,10 +3,7 @@ module.exports = function (grunt) {
 	grunt.registerTask('test', [
 		'clean:test', 
 		'browserify:test',
-		'copy:test',
-		'livereload-start',
-		'open:test',
-		'regarde'
+		'karma'
 	]);
 
 	grunt.registerTask('example', [
@@ -22,7 +19,6 @@ module.exports = function (grunt) {
 
 		browserify: {
 			test: {
-				prepend: ['node_modules/nodeunit/examples/browser/nodeunit.js'],
 				src: ['test/test.js'],
 				dest: 'test/built/test.js'
 			},
@@ -32,34 +28,24 @@ module.exports = function (grunt) {
 			}
 		},
 
+		karma: {
+      test: {
+        configFile: 'karma.conf.js',
+        singleRun: true,
+        reporters: ['dots']
+      }
+    },
+
 		clean: {
 			test: 'test/built',
 			example: 'example/built'
 		},
 
-		copy: {
-			test: {
-				src: 'node_modules/nodeunit/share/nodeunit.css',
-				dest: 'test/built/nodeunit.css'
-			}
-		},
-
 		open: {
-			test: {path: 'test/test.html'},
 			example: {path: 'example/simple.html'},
 		},
 
 		regarde: {
-			testjs: {
-				files: [
-					'test/**/*.js',
-					'lib/**/*.js'
-				],
-				tasks: [
-					'browserify:test',
-					'livereload'
-				]
-			},
 			examplejs: {
 				files: [
 					'example/**/*.js',
@@ -73,9 +59,9 @@ module.exports = function (grunt) {
 		}
 	});
 
-	grunt.loadNpmTasks('grunt-browserify');
-	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-clean');
+	grunt.loadNpmTasks('grunt-browserify');
+	grunt.loadNpmTasks('grunt-karma');
 	grunt.loadNpmTasks('grunt-contrib-livereload');
 	grunt.loadNpmTasks('grunt-open');
 	grunt.loadNpmTasks('grunt-regarde');
