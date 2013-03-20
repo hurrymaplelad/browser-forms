@@ -29,6 +29,7 @@
         "grunt-open": "0.2.x",
         "grunt-regarde": "0.1.x",
         "grunt-karma": "*",
-        "karma-nodeunit": "*"
+        "karma-nodeunit": "*",
+        "zepto": "*"
     }
 }
