@@ -5,10 +5,11 @@ var sharedSuites = {
         validators: require('forms/test/test-validators'),
         widgets: require('forms/test/test-widgets')
     }, clientSuites = {
-        fields: require('./test-fields')
+        fields: require('./test-fields'),
+        integrations: require('./test-integrations')
     };
 
-nodeunit.run([
-  clientSuites,
-  sharedSuites
-]);
+nodeunit.run({
+    client: clientSuites,
+    shared: sharedSuites
+});

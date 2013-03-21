@@ -3,7 +3,7 @@ module.exports = function (grunt) {
 	grunt.registerTask('test', [
 		'clean:test', 
 		'browserify:test',
-		'karma'
+		'karma:test'
 	]);
 
 	grunt.registerTask('example', [
@@ -13,7 +13,7 @@ module.exports = function (grunt) {
 		'open:example',
 		'regarde'
 	]);
-	
+
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 
