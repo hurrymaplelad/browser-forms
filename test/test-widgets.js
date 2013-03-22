@@ -13,5 +13,17 @@ module.exports = {
             test.ok(this.widget.attach instanceof Function);
             test.done();
         }
+    }),
+
+    password: testCase({
+        setUp: function (done) {
+            this.widget = widgets.password();
+            done();
+        },
+
+        'is attachable': function (test) {
+            test.ok(this.widget.attach instanceof Function);
+            test.done();
+        }
     })
 };

@@ -16,23 +16,6 @@ var reg_form = forms.create({
     email: fields.email()
 });
 
-document.getElementById('form').innerHTML = reg_form.toHTML();
-var emailWidget = reg_form.fields.email.widget.attach(
-    document.querySelector('[name=email]')
-);
-var emailField = reg_form.fields.email.attach(emailWidget);
-
-// $(document).on('change', 'input', function(event) {
-//     var formEl = event.target.form;
-//     var $inputs = $('input', formEl);
-//     var data = {};
-//     $inputs.each(function(i, input) {
-//         data[input.name] = input.value;
-//     });
-//     reg_form.bind(data).validate(function (err, f) {
-//         render(f);
-//     });
-// });
-
-// render(reg_form);
-
+var formEl = document.getElementById('form')
+formEl.innerHTML = reg_form.toHTML();
+reg_form.attach(formEl);

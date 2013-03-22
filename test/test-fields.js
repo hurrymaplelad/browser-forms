@@ -29,7 +29,6 @@ var testField = function (field) {
             name: 'test'
         });
         var fieldElement = elementFromString(f.toHTML());
-        // console.log(f.widget.toString());
         var widget = f.widget.attach(fieldElement.querySelector('[name=test]'));
         var attached = f.attach(widget);
 
