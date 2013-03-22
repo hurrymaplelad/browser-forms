@@ -7,6 +7,7 @@ var sharedSuites = {
     }, clientSuites = {
         fields: require('./test-fields'),
         forms: require('./test-forms'),
+        widgets: require('./test-widgets'),
         integrations: require('./test-integrations')
     };
 

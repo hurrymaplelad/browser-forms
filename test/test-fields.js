@@ -29,7 +29,8 @@ var testField = function (field) {
             name: 'test'
         });
         var fieldElement = elementFromString(f.toHTML());
-        var widget = widgets.forInput(fieldElement.querySelector('[name=test]'));
+        // console.log(f.widget.toString());
+        var widget = f.widget.attach(fieldElement.querySelector('[name=test]'));
         var attached = f.attach(widget);
 
         // has methods to show and clear errors

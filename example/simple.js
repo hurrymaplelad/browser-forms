@@ -17,7 +17,7 @@ var reg_form = forms.create({
 });
 
 document.getElementById('form').innerHTML = reg_form.toHTML();
-var emailWidget = widgets.forInput(
+var emailWidget = reg_form.fields.email.widget.attach(
     document.querySelector('[name=email]')
 );
 var emailField = reg_form.fields.email.attach(emailWidget);
