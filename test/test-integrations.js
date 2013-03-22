@@ -1,4 +1,4 @@
-var testcase = nodeunit.testCase;
+var testCase = nodeunit.testCase;
 
 require('zepto');
 var forms = require('..'),
@@ -17,7 +17,7 @@ var waitFor = function (fn, pass) {
     setTimeout(check, 50);
 };
 
-module.exports = testcase({
+module.exports = testCase({
     setUp: function (done) {
         this.form = forms.create({
             username: fields.string({required: true}),
