@@ -6,13 +6,16 @@ module.exports = function (grunt) {
 		'karma:test'
 	]);
 
-	grunt.registerTask('example', [
-		'clean:example', 
-		'browserify:example',
-		'livereload-start',
-		'open:example',
-		'regarde'
-	]);
+	grunt.registerTask('example', function (file) {
+		grunt.task.run(
+			'clean:example', 
+			'browserify:example-simple',
+			'browserify:example-complex',
+			'livereload-start',
+			['open'].concat([file]).join(':'),
+			'regarde'
+		);
+	});
 
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
@@ -22,9 +25,13 @@ module.exports = function (grunt) {
 				src: ['test/test.js'],
 				dest: 'test/built/test.js'
 			},
-			example: {
+			'example-simple': {
 				src: ['example/simple.js'],
 				dest: 'example/built/simple.js'
+			},
+			'example-complex': {
+				src: ['example/complex.js'],
+				dest: 'example/built/complex.js'
 			}
 		},
 
@@ -42,7 +49,8 @@ module.exports = function (grunt) {
 		},
 
 		open: {
-			example: {path: 'example/simple.html'},
+			simple: {path: 'example/simple.html'},
+			complex: {path: 'example/complex.html'}
 		},
 
 		regarde: {

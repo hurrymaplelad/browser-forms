@@ -1,5 +1,3 @@
-require('zepto');
-
 var forms = require('../index'),
     fields = forms.fields,
     validators = forms.validators,
