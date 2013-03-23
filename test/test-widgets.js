@@ -34,6 +34,7 @@ module.exports = {
     text: inputSuite('text'),
     password: inputSuite('password'),
     hidden: inputSuite('hidden'),
+    textarea: inputSuite('textarea'),
 
     color: testCase({
         setUp: function (done) {

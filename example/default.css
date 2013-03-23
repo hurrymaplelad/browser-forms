@@ -19,9 +19,6 @@ label {
 .field input, .field select, .field textarea {
     width: 180px;
 }
-.field textarea {
-    margin-top: -15px;
-}
 .field input[type='checkbox'] {
     position: relative;
     margin-left: 32px;

@@ -16,6 +16,9 @@ var form = forms.create({
         validators: [function (form, field, callback) { 
             callback(field.data ? 'Don´t do it!' : null);
         }]
+    }),
+    notes: fields.string({
+        widget: widgets.textarea({rows: 6})
     })
     // options: fields.string({
     //     choices: {
@@ -44,9 +47,6 @@ var form = forms.create({
     //     choices: {one: 'item 1', two: 'item 2', three: 'item 3'},
     //     widget: widgets.multipleSelect()
     // }),
-    // notes: fields.string({
-    //     widget: widgets.textarea({rows: 6})
-    // })
 });
 
 var formEl = document.getElementById('form')
