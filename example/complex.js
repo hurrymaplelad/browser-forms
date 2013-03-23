@@ -12,37 +12,41 @@ var form = forms.create({
         required: true,
         validators: [validators.matchField('password')]
     }),
-    options: fields.string({
-        choices: {
-            one: 'option one',
-            two: 'option two',
-            three: 'option three'
-        },
-        widget: widgets.select(),
-        validators: [function (form, field, callback) {
-            if (field.data === 'two') {
-                callback('two?! are you crazy?!');
-            } else {
-                callback();
-            }
+    spam_me: fields.boolean({
+        validators: [function (form, field, callback) { 
+            callback(field.data ? 'Don´t do it!' : null);
         }]
-    }),
-    more_options: fields.array({
-        choices: {one: 'item 1', two: 'item 2', three: 'item 3'},
-        widget: widgets.multipleCheckbox()
-    }),
-    even_more: fields.string({
-        choices: {one: 'item 1', two: 'item 2', three: 'item 3'},
-        widget: widgets.multipleRadio()
-    }),
-    and_more: fields.array({
-        choices: {one: 'item 1', two: 'item 2', three: 'item 3'},
-        widget: widgets.multipleSelect()
-    }),
-    notes: fields.string({
-        widget: widgets.textarea({rows: 6})
-    }),
-    spam_me: fields.boolean()
+    })
+    // options: fields.string({
+    //     choices: {
+    //         one: 'option one',
+    //         two: 'option two',
+    //         three: 'option three'
+    //     },
+    //     widget: widgets.select(),
+    //     validators: [function (form, field, callback) {
+    //         if (field.data === 'two') {
+    //             callback('two?! are you crazy?!');
+    //         } else {
+    //             callback();
+    //         }
+    //     }]
+    // }),
+    // more_options: fields.array({
+    //     choices: {one: 'item 1', two: 'item 2', three: 'item 3'},
+    //     widget: widgets.multipleCheckbox()
+    // }),
+    // even_more: fields.string({
+    //     choices: {one: 'item 1', two: 'item 2', three: 'item 3'},
+    //     widget: widgets.multipleRadio()
+    // }),
+    // and_more: fields.array({
+    //     choices: {one: 'item 1', two: 'item 2', three: 'item 3'},
+    //     widget: widgets.multipleSelect()
+    // }),
+    // notes: fields.string({
+    //     widget: widgets.textarea({rows: 6})
+    // })
 });
 
 var formEl = document.getElementById('form')

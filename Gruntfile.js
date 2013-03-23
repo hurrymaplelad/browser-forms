@@ -58,11 +58,12 @@ module.exports = function (grunt) {
 		regarde: {
 			examplejs: {
 				files: [
-					'example/**/*.js',
+					'example/*.js',
 					'lib/**/*.js'
 				],
 				tasks: [
-					'browserify2:example',
+					'browserify2:example-simple',
+					'browserify2:example-complex',
 					'livereload'
 				]
 			}

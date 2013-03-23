@@ -25,5 +25,17 @@ module.exports = {
             test.ok(this.widget.attach instanceof Function);
             test.done();
         }
+    }),
+
+    checkbox: testCase({
+        setUp: function (done) {
+            this.widget = widgets.checkbox();
+            done();
+        },
+
+        'is attachable': function (test) {
+            test.ok(this.widget.attach instanceof Function);
+            test.done();
+        }
     })
 };
