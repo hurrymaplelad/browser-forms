@@ -23,7 +23,7 @@
     ],
     "devDependencies": {
         "grunt": "0.4.x",
-        "grunt-browserify": "git://github.com/jmreidy/grunt-browserify.git#grunt0.4-compat",
+        "grunt-browserify2": "*",
         "grunt-contrib-clean": "0.4.x",
         "grunt-contrib-livereload": "0.1.x",
         "grunt-open": "0.2.x",

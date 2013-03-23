@@ -2,15 +2,15 @@ module.exports = function (grunt) {
 
 	grunt.registerTask('test', [
 		'clean:test', 
-		'browserify:test',
+		'browserify2:test',
 		'karma:test'
 	]);
 
 	grunt.registerTask('example', function (file) {
 		grunt.task.run(
 			'clean:example', 
-			'browserify:example-simple',
-			'browserify:example-complex',
+			'browserify2:example-simple',
+			'browserify2:example-complex',
 			'livereload-start',
 			['open'].concat([file]).join(':'),
 			'regarde'
@@ -20,18 +20,20 @@ module.exports = function (grunt) {
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 
-		browserify: {
+		browserify2: {
 			test: {
-				src: ['test/test.js'],
-				dest: 'test/built/test.js'
+				entry: './test/test.js',
+				compile: './test/built/test.js'
 			},
 			'example-simple': {
-				src: ['example/simple.js'],
-				dest: 'example/built/simple.js'
+				entry: './example/simple.js',
+				compile: './example/built/simple.js',
+				debug: true
 			},
 			'example-complex': {
-				src: ['example/complex.js'],
-				dest: 'example/built/complex.js'
+				entry: './example/complex.js',
+				compile: './example/built/complex.js',
+				debug: true
 			}
 		},
 
@@ -60,7 +62,7 @@ module.exports = function (grunt) {
 					'lib/**/*.js'
 				],
 				tasks: [
-					'browserify:example',
+					'browserify2:example',
 					'livereload'
 				]
 			}
@@ -68,7 +70,7 @@ module.exports = function (grunt) {
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-clean');
-	grunt.loadNpmTasks('grunt-browserify');
+	grunt.loadNpmTasks('grunt-browserify2');
 	grunt.loadNpmTasks('grunt-karma');
 	grunt.loadNpmTasks('grunt-contrib-livereload');
 	grunt.loadNpmTasks('grunt-open');
