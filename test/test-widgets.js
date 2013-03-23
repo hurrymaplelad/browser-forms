@@ -90,5 +90,49 @@ module.exports = {
                 test.done();
             }
         })
+    }),
+
+    multipleCheckbox: testCase({
+        setUp: function (done) {
+            this.widget = widgets.multipleCheckbox();
+            done();
+        },
+
+        'is attachable': function (test) {
+            test.ok(this.widget.attach instanceof Function);
+            test.done();
+        },
+
+        'when attached': testCase({
+            setUp: function (done) {
+                var widget = widgets.multipleCheckbox();
+                this.fieldset = document.createElement('fieldset');
+                this.fieldset.innerHTML = widget.toHTML('name', {choices: {
+                    a: 'A',
+                    b: 'B'
+                }});
+                this.attachedWidget = widget.attach(this.fieldset);
+                done();
+            },
+
+            'updates widget value when a checkbox is toggled': function (test) {
+                var aBox = this.fieldset.querySelector('[value=a]'),
+                    bBox = this.fieldset.querySelector('[value=b]'),
+                    $fieldset = $(this.fieldset);
+
+                aBox.checked = true;
+                $fieldset.trigger('change');
+                test.deepEqual(this.attachedWidget.value, ['a']);
+
+                bBox.checked = true;
+                $fieldset.trigger('change');
+                test.deepEqual(this.attachedWidget.value, ['a', 'b']);
+
+                aBox.checked = false;
+                $fieldset.trigger('change');
+                test.deepEqual(this.attachedWidget.value, ['b']);
+                test.done();
+            }
+        })
     })
 };

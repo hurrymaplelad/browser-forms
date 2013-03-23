@@ -13,12 +13,19 @@ var form = forms.create({
         validators: [validators.matchField('password')]
     }),
     spam_me: fields.boolean({
-        validators: [function (form, field, callback) { 
+        validators: [function (form, field, callback) {
             callback(field.data ? 'Don´t do it!' : null);
         }]
     }),
     notes: fields.string({
         widget: widgets.textarea({rows: 6})
+    }),
+    more_options: fields.array({
+        choices: {one: 'item 1', two: 'item 2', three: 'item 3'},
+        widget: widgets.multipleCheckbox(),
+        validators: [function (form, field, callback) {
+            callback(field.data.length ? 'Don´t do it!' : null);
+        }]
     })
     // options: fields.string({
     //     choices: {
@@ -34,10 +41,6 @@ var form = forms.create({
     //             callback();
     //         }
     //     }]
-    // }),
-    // more_options: fields.array({
-    //     choices: {one: 'item 1', two: 'item 2', three: 'item 3'},
-    //     widget: widgets.multipleCheckbox()
     // }),
     // even_more: fields.string({
     //     choices: {one: 'item 1', two: 'item 2', three: 'item 3'},
