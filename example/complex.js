@@ -1,3 +1,5 @@
+require('zepto');
+
 var forms = require('../index'),
     fields = forms.fields,
     validators = forms.validators,
@@ -42,11 +44,14 @@ var form = forms.create({
         validators: [function (form, field, callback) {
             callback(field.data.length ? 'Don´t do it!' : null);
         }]
+    }),
+    even_more: fields.string({
+        choices: {one: 'item 1', two: 'item 2', three: 'item 3'},
+        widget: widgets.multipleRadio(),
+        validators: [function (form, field, callback) {
+            callback(field.data === 'two' ? 'two?! are you crazy?!' : null);
+        }]
     })
-    // even_more: fields.string({
-    //     choices: {one: 'item 1', two: 'item 2', three: 'item 3'},
-    //     widget: widgets.multipleRadio()
-    // }),
     // and_more: fields.array({
     //     choices: {one: 'item 1', two: 'item 2', three: 'item 3'},
     //     widget: widgets.multipleSelect()

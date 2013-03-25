@@ -35,7 +35,6 @@ module.exports = {
     password: inputSuite('password'),
     hidden: inputSuite('hidden'),
     textarea: inputSuite('textarea'),
-    select: inputSuite('select'),
 
     color: testCase({
         setUp: function (done) {
@@ -93,6 +92,37 @@ module.exports = {
         })
     }),
 
+    select: testCase({
+        setUp: function (done) {
+            this.widget = widgets.select();
+            done();
+        },
+
+        'is attachable': function (test) {
+            test.ok(this.widget.attach instanceof Function);
+            test.done();
+        },
+
+        'when attached': testCase({
+            setUp: function (done) {
+                var widget = widgets.select();
+                this.select = $(widget.toHTML('name', {choices: {
+                    a: 'A',
+                    b: 'B'
+                }}))[0];
+                this.attachedWidget = widget.attach(this.select);
+                done();
+            },
+
+            'updates widget value when the checkbox is checked': function (test) {
+                this.select.value = 'b';
+                $(this.select).trigger('change');
+                test.equal(this.attachedWidget.value, 'b');
+                test.done();
+            }
+        })
+    }),
+
     multipleCheckbox: testCase({
         setUp: function (done) {
             this.widget = widgets.multipleCheckbox();
@@ -107,7 +137,7 @@ module.exports = {
         'when attached': testCase({
             setUp: function (done) {
                 var widget = widgets.multipleCheckbox();
-                this.fieldset = document.createElement('fieldset');
+                this.fieldset = document.createElement('div');
                 this.fieldset.innerHTML = widget.toHTML('name', {choices: {
                     a: 'A',
                     b: 'B'
@@ -132,6 +162,46 @@ module.exports = {
                 aBox.checked = false;
                 $fieldset.trigger('change');
                 test.deepEqual(this.attachedWidget.value, ['b']);
+                test.done();
+            }
+        })
+    }),
+
+    multipleRadio: testCase({
+        setUp: function (done) {
+            this.widget = widgets.multipleRadio();
+            done();
+        },
+
+        'is attachable': function (test) {
+            test.ok(this.widget.attach instanceof Function);
+            test.done();
+        },
+
+        'when attached': testCase({
+            setUp: function (done) {
+                var widget = widgets.multipleRadio();
+                this.container = document.createElement('form');
+                this.container.innerHTML = widget.toHTML('name', {choices: {
+                    a: 'A',
+                    b: 'B'
+                }});
+                this.attachedWidget = widget.attach(this.container);
+                done();
+            },
+
+            'updates widget value when a radio is checked': function (test) {
+                var aBox = this.container.querySelector('[value=a]'),
+                    bBox = this.container.querySelector('[value=b]'),
+                    $container = $(this.container);
+
+                aBox.checked = true;
+                $container.trigger('change');
+                test.equal(this.attachedWidget.value, 'a');
+
+                bBox.checked = true;
+                $container.trigger('change');
+                test.equal(this.attachedWidget.value, 'b');
                 test.done();
             }
         })

@@ -58,5 +58,5 @@ module.exports = testCase({
                 return !emailField.errorMessageElement.innerHTML;
             }, test.done);
         });
-    },
+    }
 });

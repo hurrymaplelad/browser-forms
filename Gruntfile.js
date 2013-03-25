@@ -23,7 +23,8 @@ module.exports = function (grunt) {
 		browserify2: {
 			test: {
 				entry: './test/test.js',
-				compile: './test/built/test.js'
+				compile: './test/built/test.js',
+				debug: true
 			},
 			'example-simple': {
 				entry: './example/simple.js',
