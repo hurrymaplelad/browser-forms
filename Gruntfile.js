@@ -11,6 +11,7 @@ module.exports = function (grunt) {
 			'clean:example', 
 			'browserify2:example-simple',
 			'browserify2:example-complex',
+			'browserify2:example-bootstrap',
 			'livereload-start',
 			['open'].concat([file]).join(':'),
 			'regarde'
@@ -35,6 +36,11 @@ module.exports = function (grunt) {
 				entry: './example/complex.js',
 				compile: './example/built/complex.js',
 				debug: true
+			},
+			'example-bootstrap': {
+				entry: './example/bootstrap.js',
+				compile: './example/built/bootstrap.js',
+				debug: true
 			}
 		},
 
@@ -53,7 +59,8 @@ module.exports = function (grunt) {
 
 		open: {
 			simple: {path: 'example/simple.html'},
-			complex: {path: 'example/complex.html'}
+			complex: {path: 'example/complex.html'},
+			bootstrap: {path: 'example/bootstrap.html'}
 		},
 
 		regarde: {
@@ -65,6 +72,7 @@ module.exports = function (grunt) {
 				tasks: [
 					'browserify2:example-simple',
 					'browserify2:example-complex',
+					'browserify2:example-bootstrap',
 					'livereload'
 				]
 			}
