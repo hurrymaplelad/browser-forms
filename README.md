@@ -7,6 +7,8 @@ validators and interfaces [caolan/forms](http://github.com/caolan/forms) to uses
 server-side Express form processing.
 
     npm install browser-forms
+    
+**Heads up! This library is evolving rapidly**
 
 
 ## Goals
