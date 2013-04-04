@@ -2,8 +2,9 @@
 
 Constructing a good form by hand is a lot of work. 
 Rails, Django, and jQuery contain code to make this process less painful.
-This module is an attempt to provide the same sort of helpers for browser-side using the same
-validators and interfaces [caolan/forms](http://github.com/caolan/forms) to uses for express.
+This module is an attempt to provide browser-side helpers using the same
+validators and interfaces [caolan/forms](http://github.com/caolan/forms) to uses for
+server-side Express form processing.
 
     npm install browser-forms
 
