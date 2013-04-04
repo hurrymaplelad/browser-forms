@@ -1,35 +1,35 @@
 {
-    "name": "browser-forms",
-    "description": "Polished form validation interaction in the browser.  Built on caolan/forms.",
-    "main": "./index",
-    "version": "0.0.1",
-    "repository": {
-        "type": "git",
-        "url": "http://github.com/hurrymaplelad/browser-forms.git"
-    },
-    "bugs": {
-        "url": "http://github.com/hurrymaplelad/browser-forms/issues"
-    },
-    "scripts": {
-        "test": "grunt test"
-    },
-    "dependencies": {
-        "forms": "0.1.x"
-    },
-    "licenses": [
-        {
-            "type": "MIT"
-        }
-    ],
-    "devDependencies": {
-        "grunt": "0.4.x",
-        "grunt-browserify2": "*",
-        "grunt-contrib-clean": "0.4.x",
-        "grunt-contrib-livereload": "0.1.x",
-        "grunt-open": "0.2.x",
-        "grunt-regarde": "0.1.x",
-        "grunt-karma": "*",
-        "karma-nodeunit": "*",
-        "zepto": "*"
+  "name": "browser-forms",
+  "description": "Polished form validation interaction in the browser.  Built on caolan/forms.",
+  "main": "./index",
+  "version": "0.0.2",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/hurrymaplelad/browser-forms.git"
+  },
+  "bugs": {
+    "url": "http://github.com/hurrymaplelad/browser-forms/issues"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "dependencies": {
+    "forms": "0.1.x"
+  },
+  "licenses": [
+    {
+      "type": "MIT"
     }
+  ],
+  "devDependencies": {
+    "grunt": "0.4.x",
+    "grunt-browserify2": "*",
+    "grunt-contrib-clean": "0.4.x",
+    "grunt-contrib-livereload": "0.1.x",
+    "grunt-open": "0.2.x",
+    "grunt-regarde": "0.1.x",
+    "grunt-karma": "*",
+    "karma-nodeunit": "*",
+    "zepto": "*"
+  }
 }
