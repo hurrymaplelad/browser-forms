@@ -69,4 +69,5 @@ Build whatever markup you like, but mind these constraints if you want to smooth
 - `widget.toHTML()` must return a single root element for delegation and location
 - fields default `label` to `labelText(name)` if `name` is set and `label` is not
 - Validators almost exclusively check `field.data`, why not pass just one arg?
+- Choices and fields need stable iteration order...
 

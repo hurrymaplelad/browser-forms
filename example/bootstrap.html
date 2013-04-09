@@ -3,22 +3,59 @@
   <head>
     <meta charset="utf-8">
     <title>Bootstrap Form Example</title>
-    <link rel="stylesheet" href="bootstrap-min/css/bootstrap.min.css"></link>
+    <link rel="stylesheet" href="vendor/bootstrap-min/css/bootstrap.min.css"></link>
   </head>
   <body>
     <script src="http://localhost:35729/livereload.js"></script>
-    <!--<script src="bootstrap-min/js/bootstrap.min.js"></script> -->
-    <div class="container-fluid">
+    <script src="vendor/handlebars.js"></script>
+    <!--<script src="vendor/bootstrap-min/js/bootstrap.min.js"></script> -->
+    <script id="field-partial" type="text/x-handlebars-template">
+      <div class="control-group">
+        <label for="id_{{name}}">{{labelText}}</label>
+        {{{widget.toHTML}}}
+        <div class="help-block"></div>
+      </div>
+    </script>
+
+    <script id="checkable-field-partial" type="text/x-handlebars-template">
+      <div class="control-group">
+        <label class="{{widget.type}}">{{{widget.toHTML}}} {{labelText}}</label>
+        <div class="help-block"></div>
+      </div>
+    </script>    
+
+    <script id="choice-checkable-field-partial" type="text/x-handlebars-template">
+      <div class="control-group" data-name="{{name}}">
+        <label>{{labelText}}</label>
+        {{#forIn choices}}
+          <label class="checkbox">
+            <input type="checkbox" name="{{../name}}" value="{{key}}"> {{value}}
+          </label>
+        {{/forIn}}
+        <div class="help-block"></div>
+      </div>
+    </script>
+
+    <script id="template" type="text/x-handlebars-template">
       <div class="row-fluid">
         <h1>Bootstrap</h1>
-        <form id="form">
-          <div class="control-group">
-            <label>Label name</label>
-            <input type="text" name="beep" placeholder="Type something…" required>
-            <div class="help-block"></div>
-          </div>
+        <form>
+          {{#with form.fields}}
+            {{#name}}{{>field}}{{/name}}
+            {{#email}}{{>field}}{{/email}}
+            {{#website}}{{>field}}{{/website}}
+            {{#count}}{{>field}}{{/count}}
+            {{#password}}{{>field}}{{/password}}
+            {{#password_confirm}}{{>field}}{{/password_confirm}}
+            {{#spam_me}}{{>checkableField}}{{/spam_me}}
+            {{#notes}}{{>field}}{{/notes}}
+            {{#options}}{{>field}}{{/options}}
+            {{#more_options}}{{>choiceCheckableField}}{{/more_options}}
+          {{/with}}
         </form>
       </div>
+    </script>
+    <div class="container-fluid">
     </div>
     <script src="built/bootstrap.js" charset="utf-8"></script>
   </body>

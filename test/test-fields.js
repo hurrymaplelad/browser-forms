@@ -21,8 +21,8 @@ var testField = function (field) {
         test.ok(/class.*error_msg/.test(f.toHTML()));
         test.done();
 
-        // defaults label to labelText when name is set
-        test.equals(f.label, 'Foo');
+        // labelText uses this.name if set
+        test.equals(f.labelText(), 'Foo');
     };
 
     exports[field + ' attached'] = function (test) {
