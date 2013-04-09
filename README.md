@@ -66,6 +66,7 @@ Build whatever markup you like, but mind these constraints if you want to smooth
 - Each widget must have a root element.  Easy for an `<input/>`, interesting for a radio button group.
 
 ## Divergence from caolan/forms
-- widget.toHTML() must return a single root element for delegation and location
-- Validators almost exclusively check field.data, why not pass just one arg?
+- `widget.toHTML()` must return a single root element for delegation and location
+- fields default `label` to `labelText(name)` if `name` is set and `label` is not
+- Validators almost exclusively check `field.data`, why not pass just one arg?
 

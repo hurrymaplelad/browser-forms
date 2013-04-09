@@ -11,8 +11,7 @@ var elementFromString = function (string) {
 var testField = function (field) {
     exports[field + ' attach'] = function (test) {
         var f = fields[field]({
-            label: 'test label',
-            name: 'test'
+            name: 'foo'
         });
 
         // field has an attach method
@@ -21,15 +20,18 @@ var testField = function (field) {
         // always includes error message wrapper in HTML, even when there's no error
         test.ok(/class.*error_msg/.test(f.toHTML()));
         test.done();
+
+        // defaults label to labelText when name is set
+        test.equals(f.label, 'Foo');
     };
 
     exports[field + ' attached'] = function (test) {
         var f = fields[field]({
             label: 'test label',
-            name: 'test'
+            name: 'foo'
         });
         var fieldElement = elementFromString(f.toHTML());
-        var widget = f.widget.attach(fieldElement.querySelector('[name=test]'));
+        var widget = f.widget.attach(fieldElement.querySelector('[name=foo]'));
         var attached = f.attach(widget);
 
         // has methods to show and clear errors
