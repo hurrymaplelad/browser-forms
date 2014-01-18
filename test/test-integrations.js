@@ -1,6 +1,6 @@
 var testCase = nodeunit.testCase;
 
-require('zepto');
+require('zepto/zepto.min.js');
 var forms = require('..'),
     fields = forms.fields,
     validators = forms.validators,

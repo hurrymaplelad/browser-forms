@@ -45,12 +45,12 @@ module.exports = function (grunt) {
 		},
 
 		karma: {
-      test: {
-        configFile: 'karma.conf.js',
-        singleRun: true,
-        reporters: ['dots']
-      }
-    },
+            test: {
+                configFile: 'karma.conf.js',
+                singleRun: true,
+                reporters: ['dots']
+            }
+        },
 
 		clean: {
 			test: 'test/built',

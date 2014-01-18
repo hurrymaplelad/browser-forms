@@ -1,7 +1,9 @@
-files = [
-  'node_modules/karma-nodeunit/lib/nodeunit.js',
-  'node_modules/karma-nodeunit/lib/adapter.js',
-  'test/built/*.js'
-];
-browsers = ['Chrome'];
-autoWatch = false;
+module.exports = function (config) {
+    config.set({
+        frameworks: ['nodeunit'],
+        files:  [
+            'test/built/*.js'
+        ],
+        autoWatch: false
+    });
+};

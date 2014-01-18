@@ -1,4 +1,4 @@
-require('zepto');
+require('zepto/zepto.min.js');
 var testCase = nodeunit.testCase;
 var widgets = require('..').widgets;
 
