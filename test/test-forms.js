@@ -19,6 +19,13 @@ var multiSectionForm = forms.create({
     }
 });
 
+var formMissingAddress = forms.create({
+    userDetails: {
+        username: fields.string({required: true}),
+        password: fields.password({required: true})
+    }
+});
+
 module.exports = {
     'are attachable': function (test) {
         test.ok(form.attach instanceof Function);
@@ -49,6 +56,20 @@ module.exports = {
 
         'work': function (test) {
             test.ok(this.attachedForm);
+            test.done();
+        }
+    }),
+
+    'should not error when field is missing from page': testCase({
+        setUp: function (done) {
+            this.formEl = document.createElement('form');
+            this.formEl.innerHTML = formMissingAddress.toHTML();
+            done();
+        },
+
+        'work': function (test) {
+            var self = this;
+            test.doesNotThrow(function() { multiSectionForm.attach(self.formEl); });
             test.done();
         }
     })
