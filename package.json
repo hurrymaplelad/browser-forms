@@ -14,7 +14,7 @@
     "test": "grunt test"
   },
   "dependencies": {
-    "forms": "~0.3.0"
+    "forms": "^0.10.0"
   },
   "licenses": [
     {
