@@ -14,7 +14,7 @@
     "test": "grunt test"
   },
   "dependencies": {
-    "forms": "^1.0.0"
+    "forms": "~1.0.0"
   },
   "licenses": [
     {
@@ -22,12 +22,12 @@
     }
   ],
   "devDependencies": {
-    "grunt": "0.4.x",
+    "grunt": "~0.4.5",
     "grunt-browserify2": "*",
     "grunt-contrib-clean": "0.4.x",
     "grunt-contrib-livereload": "0.1.x",
-    "grunt-open": "0.2.x",
-    "grunt-regarde": "0.1.x",
+    "grunt-open": "~0.2.3",
+    "grunt-regarde": "~0.1.1",
     "grunt-karma": "~0.6.2",
     "karma-nodeunit": "~0.1.1",
     "zepto": "0.0.4",
